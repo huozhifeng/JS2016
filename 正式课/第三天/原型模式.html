@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*原型 prototype
+     *    1 当我们自定义一个函数（构造函数，类）的时候，有天生自带prototype的属性。并且这个prototype的值也是一个对象类型的。这个对象类型值也有一个天生自带的属性constructor并且属性的值是函数（构造函数，类）本身。
+     *    2 这个类的实例也会有一个叫做__proto__的天生自带的属性。并且这个属性的值也是对象类型的。这个值是这个实例所属类的原型
+     *    3 每一个引用类型都有一个天生自带的属性__proto__,所以说我们的原型prototype也会天生自带一个__proto__的属性。并且这个属性的值也是一个对象类型，一直到我们的基类Object。
+     *    4 通过原型添加的属性和方法都是公有的，每一个实例都会自带
+     *    5 一个实例的方法在运行的时候，如果这个方法是私有的就直接用，如果不是私有的通过__proto__去所属类的原型上查找，如果还没有 通过原型的__proto__一直查找到基类的Object。如果没有报错，有就直接用。我们把这种通过__proto__查找的机制叫做原型链。
+     *
+    *
+    * */
+    function FE(){}
+    console.dir(FE);              //对象 function FE()
+    var fe = new FE();
+    console.dir(fe);                //对象 FE
+                                   //  FE.prototype.constructor ==  FE;
+                                   //  fe.__proto__.constructor ==  FE;
+                                   //  fe.__proto__.__proto__   ==  Object.prototype ;
+    console.log(Object.prototype);
+    console.log( fe.__proto__);
+
+    /*function FE(){
+        this.x=100;
+        this.y=200;
+    }
+    FE.prototype.code = function(){}*/
+
+</script>
+</body>
+</html>
